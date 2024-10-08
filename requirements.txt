@@ -1,0 +1,6 @@
+pandas==2.2.3
+numpy==2.1.2
+SQLAlchemy==2.0.35
+tqdm==4.66.5
+matplotlib==3.9.2
+openai==1.51.2
