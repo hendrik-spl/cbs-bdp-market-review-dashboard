@@ -51,6 +51,8 @@ class DimensionLocation(Base):
     region = Column(String)
     country = Column(String)
     continent = Column(String)
+    longitude = Column(String)
+    latitude = Column(String)
 
     organizations = relationship('DimensionOrganization', back_populates='location')
 
