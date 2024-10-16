@@ -1,8 +1,9 @@
 import pandas as pd
+from utils.data_utils import get_entire_df
 
 class Preprocessing:
-    def __init__(self, df):
-        self.df = df
+    def __init__(self):
+        self.df = get_entire_df()
         self.organizations_df = pd.DataFrame()
         self.locations_df = pd.DataFrame()
         self.industries_df = pd.DataFrame()
