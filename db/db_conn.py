@@ -1,7 +1,7 @@
 # This file is used to store all functionality related to the database
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-from config import DATABASE_URI
+from db.config import DATABASE_URI
 from contextlib import contextmanager
 
 # Create a connection to the database

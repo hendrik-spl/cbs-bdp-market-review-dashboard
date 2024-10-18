@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, Float, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
-from db_conn import Base
+from db.db_conn import Base
 
 class FactFunding(Base):
     __tablename__ = 'fact_funding'
