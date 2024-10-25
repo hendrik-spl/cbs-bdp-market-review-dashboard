@@ -25,6 +25,9 @@ class FactFunding(Base):
     equity_only = Column(Boolean)
     funding_status = Column(String)
     number_of_investors = Column(Float)
+    funding_amount_cluster = Column(Integer)
+    money_raised_cluster = Column(Integer)
+    transaction_cluster = Column(Integer)
 
     organization = relationship('DimensionOrganization', back_populates='fundings')
     investors = relationship('InvestorMapping', back_populates='funding')
@@ -36,9 +39,9 @@ class FactNews(Base):
     organization_id = Column(Integer, ForeignKey('dimension_organization.organization_id'))
     uuid = Column(String, unique=True)  # Add the uuid field as unique
     title = Column(String)
-    description = Column(Text)
+    description = Column(String)
     keywords = Column(String)
-    snippet = Column(Text)
+    snippet = Column(String)
     url = Column(String)
     image_url = Column(String)
     language = Column(String)
@@ -56,6 +59,7 @@ class DimensionOrganization(Base):
     organization_name_url = Column(String)
     organization_description = Column(String)
     location_id = Column(Integer, ForeignKey('dimension_location.location_id'))
+    company_description_cluster = Column(Integer)
     
     location = relationship('DimensionLocation', back_populates='organizations')
     fundings = relationship('FactFunding', back_populates='organization')
