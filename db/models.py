@@ -37,7 +37,7 @@ class FactNews(Base):
     
     news_id = Column(Integer, primary_key=True)
     organization_id = Column(Integer, ForeignKey('dimension_organization.organization_id'))
-    uuid = Column(String, unique=True)  # Add the uuid field as unique
+    uuid = Column(String, unique=True)
     title = Column(String)
     description = Column(String)
     keywords = Column(String)
