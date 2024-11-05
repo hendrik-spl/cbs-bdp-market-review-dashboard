@@ -1,7 +1,7 @@
-create_schema_graph
+sqlalchemy-schemadisplay==2.0
 ipykernel==6.29.5
 matplotlib==3.9.2
-matplotlib-inline
+matplotlib-inline==0.1.7
 numpy>=1.26
 openai==1.51.2
 pandas==2.2.3
