@@ -68,9 +68,8 @@ class Preprocessing:
 
         location_split = self.locations_df['Location'].str.split(',', expand=True)
         self.locations_df['City'] = location_split[0].str.strip()
-        self.locations_df['Region'] = location_split[1].str.strip()
-        self.locations_df['Country'] = location_split[2].str.strip()
-        self.locations_df['Continent'] = location_split[3].str.strip()
+        self.locations_df['Country'] = location_split[1].str.strip()
+        self.locations_df['Continent'] = location_split[2].str.strip()
         self.locations_df = self.locations_df.drop(columns=['Location'])
 
     def process_industries(self):

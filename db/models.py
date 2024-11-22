@@ -70,7 +70,6 @@ class DimensionLocation(Base):
     
     location_id = Column(Integer, primary_key=True)
     city = Column(String)
-    region = Column(String)
     country = Column(String)
     continent = Column(String)
     longitude = Column(String)
