@@ -70,12 +70,30 @@ class DimensionLocation(Base):
     
     location_id = Column(Integer, primary_key=True)
     city = Column(String)
-    country = Column(String)
-    continent = Column(String)
+    country_id = Column(Integer, ForeignKey('dimension_country.country_id'))
     longitude = Column(String)
     latitude = Column(String)
 
     organizations = relationship('DimensionOrganization', back_populates='location')
+    country = relationship('DimensionCountry', back_populates='locations')
+
+class DimensionCountry(Base):
+    __tablename__ = 'dimension_country'
+    
+    country_id = Column(Integer, primary_key=True)
+    country_name = Column(String)
+    continent_id = Column(Integer, ForeignKey('dimension_continent.continent_id'))
+
+    locations = relationship('DimensionLocation', back_populates='country')
+    continent = relationship('DimensionContinent', back_populates='countries')
+
+class DimensionContinent(Base):
+    __tablename__ = 'dimension_continent'
+    
+    continent_id = Column(Integer, primary_key=True)
+    continent_name = Column(String)
+    
+    countries = relationship('DimensionCountry', back_populates='continent')
 
 class DimensionInvestor(Base):
     __tablename__ = 'dimension_investor'
