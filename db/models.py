@@ -59,11 +59,12 @@ class DimensionOrganization(Base):
     organization_name_url = Column(String)
     organization_description = Column(String)
     location_id = Column(Integer, ForeignKey('dimension_location.location_id'))
-    company_description_cluster = Column(Integer)
+    industry_cluster_id = Column(Integer, ForeignKey('dimension_industry_cluster.industry_cluster_id'))
     
     location = relationship('DimensionLocation', back_populates='organizations')
     fundings = relationship('FactFunding', back_populates='organization')
     industries = relationship('IndustryMapping', back_populates='organization')
+    industry_cluster = relationship('DimensionIndustryCluster', back_populates='organizations')
 
 class DimensionLocation(Base):
     __tablename__ = 'dimension_location'
@@ -76,6 +77,14 @@ class DimensionLocation(Base):
 
     organizations = relationship('DimensionOrganization', back_populates='location')
     country = relationship('DimensionCountry', back_populates='locations')
+
+class DimensionIndustryCluster(Base):
+    __tablename__ = 'dimension_industry_cluster'
+    
+    industry_cluster_id = Column(Integer, primary_key=True, autoincrement=True)
+    industry_cluster = Column(String)
+
+    organizations = relationship('DimensionOrganization', back_populates='industry_cluster')
 
 class DimensionCountry(Base):
     __tablename__ = 'dimension_country'
