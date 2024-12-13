@@ -32,8 +32,8 @@ class FactFunding(Base):
     organization = relationship('DimensionOrganization', back_populates='fundings')
     investors = relationship('InvestorMapping', back_populates='funding')
 
-class FactNews(Base):
-    __tablename__ = 'fact_news'
+class DimensionNews(Base):
+    __tablename__ = 'dimension_news'
     
     news_id = Column(Integer, primary_key=True)
     organization_id = Column(Integer, ForeignKey('dimension_organization.organization_id'))
@@ -48,7 +48,6 @@ class FactNews(Base):
     published_at = Column(Date)
     source = Column(String)
     categories = Column(String)
-    relevance_score = Column(Float)
 
 class DimensionOrganization(Base):
     __tablename__ = 'dimension_organization'
