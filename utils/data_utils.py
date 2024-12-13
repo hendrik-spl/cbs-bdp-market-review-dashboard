@@ -17,5 +17,4 @@ def get_entire_df():
         file_data = pd.read_csv(file_path, skiprows=1, names=columns)
         df = pd.concat([df, file_data], ignore_index=True)
 
-    print(f"Created dataframe with shape: {df.shape}")
     return df
