@@ -13,8 +13,8 @@ def get_location(location: str):
     try:
         response = requests.get(f"https://api.tomtom.com/search/2/geocode/{location}.json?key={TomTomAPI_KEY}")
         response = response.json()
-        long = response['results'][0]['position']['lat']
-        lat = response['results'][0]['position']['lon']
+        long = response['results'][0]['position']['lon']
+        lat = response['results'][0]['position']['lat']
         return long, lat
     except Exception as e:
         print(f"Could not get coordinates for {location} due to error: {e}")
