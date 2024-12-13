@@ -51,6 +51,7 @@ class Preprocessing:
         self.df['Number of Investors'] = pd.to_numeric(self.df['Number of Investors'], errors='coerce')
         self.df['Organization Location'] = self.df['Organization Location'].replace({
             "München, Bayern, Germany, Europe" : "Munich, Bayern, Germany, Europe",
+            "Münster, Nordrhein-Westfalen, Germany, Europe" : "Munster, Nordrhein-Westfalen, Germany, Europe",
             "Köln, Nordrhein-Westfalen, Germany, Europe" : "Cologne, Nordrhein-Westfalen, Germany, Europe",
             "Göteborg, Vastra Gotaland, Sweden, Europe" : "Gothenburg, Vastra Gotaland, Sweden, Europe",
             "Goeteborg, Vastra Gotaland, Sweden, Europe" : "Gothenburg, Vastra Gotaland, Sweden, Europe",
