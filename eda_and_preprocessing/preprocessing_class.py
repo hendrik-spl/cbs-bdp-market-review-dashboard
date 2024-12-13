@@ -10,8 +10,16 @@ class Preprocessing:
         self.industry_mapping_df = pd.DataFrame()
         self.investors_df = pd.DataFrame()
         self.investor_mapping_df = pd.DataFrame()
+        self.remove_nulls()
         self.ensure_data_consistency()
         self.process_all()
+
+    def remove_nulls(self):
+        # get all rows where both Money Raised (in USD) and Pre-Money Valuation	(in USD) are null
+        nulls = self.df[(self.df['Money Raised (in USD)'].isnull()) & (self.df['Pre-Money Valuation (in USD)'].isnull())]
+
+        # drop all of these rows
+        self.df.drop(nulls.index, inplace=True)
 
     def ensure_data_consistency(self):
         self.df['Transaction Name'] = self.df['Transaction Name'].astype(str)
