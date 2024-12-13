@@ -49,6 +49,13 @@ class Preprocessing:
         self.df['Equity Only Funding'] = self.df['Equity Only Funding'].astype(str)
         self.df['Funding Status'] = self.df['Funding Status'].astype(str)
         self.df['Number of Investors'] = pd.to_numeric(self.df['Number of Investors'], errors='coerce')
+        self.df['Organization Location'] = self.df['Organization Location'].replace({
+            "München, Bayern, Germany, Europe" : "Munich, Bayern, Germany, Europe",
+            "Köln, Nordrhein-Westfalen, Germany, Europe" : "Cologne, Nordrhein-Westfalen, Germany, Europe",
+            "Göteborg, Vastra Gotaland, Sweden, Europe" : "Gothenburg, Vastra Gotaland, Sweden, Europe",
+            "Goeteborg, Vastra Gotaland, Sweden, Europe" : "Gothenburg, Vastra Gotaland, Sweden, Europe",
+            "Århus, Midtjylland, Denmark, Europe" : "Aarhus, Midtjylland, Denmark, Europe",
+        })
 
     def process_all(self):
         self.process_organizations()
