@@ -65,7 +65,6 @@ class Preprocessing:
         self.process_investors()
 
     def process_organizations(self):
-        self.df['Organization Name'] = self.df['Transaction Name'].str.split('-').str[1].str.strip()
         self.organizations_df = self.df[['Organization Name', 'Organization Location', 'Organization Industries', 'Organization Website', 'Organization Name URL', 'Organization Description']].copy()
         self.organizations_df.drop_duplicates(subset='Organization Name', inplace=True)
         self.organizations_df['OrganizationID'] = self.organizations_df.index + 1
