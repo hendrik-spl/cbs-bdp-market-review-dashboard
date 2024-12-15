@@ -49,6 +49,8 @@ class DimensionNews(Base):
     source = Column(String)
     categories = Column(String)
 
+    organization = relationship('DimensionOrganization', back_populates='news')
+
 class DimensionOrganization(Base):
     __tablename__ = 'dimension_organization'
     
@@ -64,6 +66,7 @@ class DimensionOrganization(Base):
     fundings = relationship('FactFunding', back_populates='organization')
     industries = relationship('IndustryMapping', back_populates='organization')
     industry_cluster = relationship('DimensionIndustryCluster', back_populates='organizations')
+    news = relationship('DimensionNews', back_populates='organization')
 
 class DimensionLocation(Base):
     __tablename__ = 'dimension_location'
